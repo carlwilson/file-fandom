@@ -5,6 +5,13 @@
 	<groupId>FileFandom</groupId>
 	<artifactId>FileFandom</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.source.version>1.8</java.source.version>
+        <java.target.version>1.8</java.target.version>
+        <jhove.version>1.22.1</jhove.version>
+    </properties>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -13,13 +20,12 @@
 				<version>3.8.0</version>
 				<configuration>
 					<release>12</release>
-				</configuration>
+                    <source>${java.source.version}</source>
+                    <target>${java.target.version}</target>
+                </configuration>
 			</plugin>
 		</plugins>
 	</build>
-	<properties>
-		<jhove.version>1.22.1</jhove.version>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
