@@ -63,7 +63,6 @@ public class repairStructurePdf {
 	 * 
 	 */
 
-	@SuppressWarnings("rawtypes")
 	static void repairWithItext(PdfReader reader, File filename) throws DocumentException, IOException {
 
 		Map<String, String> info = reader.getInfo();
