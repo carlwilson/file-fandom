@@ -84,9 +84,9 @@ public class ValidatePdf {
 				writer.println("<JhoveFindings>");
 
 				// To handle one file after the other
-				for (int i = 0; i < files.size(); i++) {
+				for (File file : files) {
 					boolean encrypted = false;
-					if (Utilities.GenericFileAnalysis.testFileHeaderPdf(files.get(i)) == true) { // tests
+					if (Utilities.GenericFileAnalysis.testFileHeaderPdf(file) == true) { // tests
 																									// only
 																									// PDF
 																									// with
@@ -95,12 +95,12 @@ public class ValidatePdf {
 						writer.println("<item>");
 
 						String substitute = Utilities.FileStringUtilities
-								.getFileNameFromString(files.get(i).toString());
+								.getFileNameFromString(file.toString());
 						substitute = Utilities.ReduceIllegalCharacters.reduceXmlEscapors(substitute);
 						writer.println("<filename>" + substitute + "</filename>");
 
 						PDDocument pd = new PDDocument();
-						pd = PDDocument.load(files.get(i));
+						pd = PDDocument.load(file);
 
 						if (pd.isEncrypted()) {
 							encrypted = true;
@@ -122,7 +122,7 @@ public class ValidatePdf {
 						addSomeMetadata(info);
 						pd.close();
 
-						jb.process(app, module, handler, files.get(i).toString());
+						jb.process(app, module, handler, file.toString());
 						writer.println("</item>");
 					}
 
